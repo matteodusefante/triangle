@@ -101,10 +101,10 @@ public class Triangle{
       //scalene
       for (int i = 0; i < 100; ++i) {
          ArrayList<Integer> v = new ArrayList<Integer>();
-         int x = rand.nextInt(range_to) + range_from;
+         int x = rand.nextInt(range_to) + range_from + 1;
          v.add(x);
+         v.add(x - 1);
          v.add(x + 1);
-         v.add(x + 2);
          Collections.shuffle(v);
          assert(test_triangle(v.get(0), v.get(1), v.get(2)) == triangleType.scalene);
       }

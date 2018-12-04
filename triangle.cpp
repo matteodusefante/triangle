@@ -57,6 +57,7 @@ void random_test() {
    std::random_device rand_dev;
    std::mt19937 generator(rand_dev());
    std::uniform_int_distribution<int> distr(range_from, range_to);
+   std::uniform_int_distribution<int> distr_z(range_from+1, range_to);
 
    // not a triangle
    for (int i = 0; i < 100; ++i) {
@@ -91,9 +92,9 @@ void random_test() {
    // scalene
    for (int i = 0; i < 100; ++i) {
       std::vector<int> v(3);
-      v[0] = distr(generator);
+      v[0] = distr_z(generator);
       v[1] = v[0] + 1;
-      v[2] = v[0] + 2;
+      v[2] = v[0] - 1;
       std::shuffle(std::begin(v), std::end(v), generator);
       assert(test_triangle(v[0], v[1], v[2]) == scalene);
    }
