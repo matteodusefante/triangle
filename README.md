@@ -8,7 +8,7 @@ a + b > c && a + c > b && b + c > a
 ```
 If one of the sides of the triangle is `0` then we have a (valid) *degenerate triangle*.
 
-Each source code has assert-style testing functions where both trivial inputs and random inputs are tested. Integer (type) overflow is tested as well. In fact, the test for triangle inequality (e.g. `a+b`) may generate an overflow. To avoid this, each sum is converted into a difference on positive numbers. In case of unsigned types (wrt C++), overflow is handled with a *wrap around* policy (i.e. `(MAX_VALUE + 1) == 0` evaluates to true). To avoid this, an always positive difference was ensured.
+Each source code has assert-style testing functions where both trivial inputs and random inputs are tested. Integer (type) overflow is tested as well. In fact, the test for triangle inequality (e.g. `a+b`) may generate an overflow. To avoid this, each sum is converted into a difference on positive integers (this implies no underflow). In case of unsigned types (wrt C++), overflow is handled with a *wrap around* policy (i.e. `(MAX_VALUE + 1) == 0` evaluates to true). To avoid this, an always positive difference was ensured.
 
 ### C++
 
